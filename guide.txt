@@ -1,0 +1,12 @@
+step1: create virtual env locally
+python -m venv venv
+
+step2: Activate the environment:
+./venv/Scripts/activate
+
+step3: intall selenium in venv 
+pip install selenium
+or use a requirements.txt file to install all the dependecies using this 
+pip install -r requirements.txt 
+
+pip freeze > requirements.txt If you’ve already installed some packages and want to generate a requirements.txt automatically:
