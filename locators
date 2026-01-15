@@ -1,0 +1,30 @@
+class name
+css selector
+id
+name
+link text
+partial link text
+tag name 
+xpath
+
+
+CSS_SELECTOR
+Goal	            CSS Selector
+By ID	                #id
+By class	            .class
+Multiple classes	    .a.b
+By attribute	        [name='x']
+Contains	            *= Contains (*=) Starts-with (^=) Ends-with ($=)
+Scope	                parent child
+
+“CSS selectors are preferred in Selenium because they are readable, fast, and support combinations, scoping, and attribute matching.”
+
+
+
+XPath Selector Cheat Sheet (Selenium – Python)
+Basic selectors
+Goal	CSS	XPath
+By ID	#id	//*[@id='id']
+By class	.class	//*[contains(@class,'class')]
+Multiple classes	.a.b	//*[contains(@class,'a') and contains(@class,'b')]
+By attribute	[name='x']	//*[@name='x']

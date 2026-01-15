@@ -1,24 +1,23 @@
-#1 import what we need
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
-import pytest
-import time
 from pages.login_page import LoginPage
-from pages.dashboard_page import DashboardPage
 
-#2 setup driver using pytest annotation
-@pytest.fixture
-def driver():
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
-    yield driver
-    time.sleep(5)
-    driver.quit()
-#3 set test scenario
-def test_login(driver):
+# def test_valid_credentials(driver):
+#     login = LoginPage(driver)
+#     login.open("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+#     login.type_login_credentials("Admin","admin123")
+#     get_dashboard = login.goto_dashboard()
+#     assert get_dashboard == "Dashboard", f"Expected Dasboard but got, '{get_dashboard}'"
+#     login.log_out()
+
+# def test_invalid_credentials(driver):
+#     login = LoginPage(driver)
+#     login.open("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+#     login.type_login_credentials("Admin","Invalid")
+#     get_invalidcred = login.get_invalid_credential()
+#     assert get_invalidcred == "Invalid credentials", f"Expected Invalid credentials but got, '{get_invalidcred}'"
+
+def test_emptyfields_credentials(driver):
     login = LoginPage(driver)
     login.open("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
-    login.login("admin","admin123")
-    # assert login.is_visible(LoginPage.DASHBOARD_HEADER), "OrangeHRM"
-    dashboard= DashboardPage(driver)
-    assert dashboard.is_visible(DashboardPage.HEADER),"OrageHRM"
+    login.type_login_credentials("Admin","")
+    get_requiredfield = login.get_required_field()
+    assert get_requiredfield == "Requireds", f"Expected Required but got, '{get_requiredfield}'"

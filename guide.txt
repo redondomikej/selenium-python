@@ -1,12 +1,19 @@
-step1: create virtual env locally
 python -m venv venv
+venv/scripts/activate
 
-step2: Activate the environment:
-./venv/Scripts/activate
+install
+    -selenium
+    -pytest
+    -webdriver-manager
+    pip freeze > requirements.txt
+    pip intall -r requirements.txt
 
-step3: intall selenium in venv 
-pip install selenium
-or use a requirements.txt file to install all the dependecies using this 
-pip install -r requirements.txt 
 
-pip freeze > requirements.txt If you’ve already installed some packages and want to generate a requirements.txt automatically:
+    ps: how to move git to root dir and remove the generated or cloned repo files
+    PS C:\Users\Mike Redondo\OneDrive\Desktop\LEARNINGMATERIALS\selenium\py\002_selenium_py> Move-Item "selenium-python\.git" ".\"
+PS C:\Users\Mike Redondo\OneDrive\Desktop\LEARNINGMATERIALS\selenium\py\002_selenium_py> git branch -a
+* main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/main
+PS C:\Users\Mike Redondo\OneDrive\Desktop\LEARNINGMATERIALS\selenium\py\002_selenium_py> Remove-Item "selenium-python" -Recurse -Force
+PS C:\Users\Mike Redondo\OneDrive\Desktop\LEARNINGMATERIALS\selenium\py\002_selenium_py> 
